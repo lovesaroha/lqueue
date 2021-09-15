@@ -22,7 +22,7 @@ Make sure [Git is installed](https://git-scm.com/downloads) on your machine and 
 
 ```Golang
   // Create a queue (0 for normal queue).
-  queue = lqueue.Create(0)
+  queue := lqueue.Create(0)
 
   // Add values in queue.
   queue.Enqueue(2)
@@ -41,7 +41,7 @@ Make sure [Git is installed](https://git-scm.com/downloads) on your machine and 
 
 ```Golang
   // Create a queue (1 for ascending order).
-  queue = lqueue.Create(1)
+  queue := lqueue.Create(1)
 
   // Add values in queue.
   queue.Enqueue(4)
@@ -60,7 +60,7 @@ Make sure [Git is installed](https://git-scm.com/downloads) on your machine and 
 
 ```Golang
   // Create a queue (-1 for descending order).
-  queue = lqueue.Create(-1)
+  queue := lqueue.Create(-1)
 
   // Add values in queue.
   queue.Enqueue("love")
@@ -79,7 +79,7 @@ Make sure [Git is installed](https://git-scm.com/downloads) on your machine and 
 
 ```Golang
   // Create a queue (0 for normal queue).
-  queue = lqueue.Create(0)
+  queue := lqueue.Create(0)
 
   // Add values in queue.
   queue.EnqueueValues([]interface{}{1,2,3,4,5,6,7,8,9})
@@ -98,7 +98,7 @@ Make sure [Git is installed](https://git-scm.com/downloads) on your machine and 
   }
 
   // Create a queue (0 for normal queue).
-  queue = lqueue.Create(0)
+  queue := lqueue.Create(0)
 
   // Add values in queue.
   queue.Enqueue(user{name: "love"})
@@ -121,19 +121,19 @@ Make sure [Git is installed](https://git-scm.com/downloads) on your machine and 
 
   // Compare function for custom data type.
   func compare(a interface{} , b interface{}) bool {
-    // For min priority queue.
-    return a.(int) <= b.(int) 
+    // For max priority queue.
+    return  a.(user).age > b.(user).age
   }
 
   // Create a queue (0 for normal queue).
-  queue = lqueue.Create(0)
+  queue := lqueue.Create(0)
 
   // Add values in queue with given condition.
   queue.EnqueueWith(user{name: "love" , age: 27} , compare)
   queue.EnqueueWith(user{name: "joe" , age: 30} , compare)
   queue.EnqueueWith(user{name: "doe" , age: 34} , compare)
 
-  // Remove value from queue and return value.
+  // Remove value from queue and return value ( user{name: "doe" , age: 34} ).
   queue.Dequeue()
 
   // Print values in queue.
@@ -145,7 +145,7 @@ Make sure [Git is installed](https://git-scm.com/downloads) on your machine and 
 ```Golang 
 
   // Create a queue (0 for normal queue).
-  queue = lqueue.Create(0)
+  queue := lqueue.Create(0)
 
   // Add values in queue.
   queue.Enqueue(2)
